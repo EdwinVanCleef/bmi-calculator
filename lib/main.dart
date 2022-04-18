@@ -2,8 +2,11 @@
 
 import 'package:bmi/screens/input_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
 
@@ -20,10 +23,7 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: Color(0xFF0A0E21),
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => InputPage(),
-      },
+      home: InputPage(),
     );
   }
 }
